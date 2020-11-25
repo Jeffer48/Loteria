@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=VT323&display=swap');*/
+*{
+  list-style: none;  
+}
+
+/* ---------------------------------------------------------------------- Sección del Header ----------------------------------------------------------------- */
+
+a.navbar-brand{    /*Carcateristicas del logo*/
+    font-size: 40px;
+    margin-right: 75px;
+    font-family: 'Love Ya Like A Sister', cursive;
+    
+}
+
+a.nav-link{    /*Caracteristicas del menu*/
+    font-size: 30px;
+    font-family: 'VT323', monospace;
+    margin: 10px 10px;
+}
+
+/* ---------------------------------------------------------------------- Sección del Body ----------------------------------------------------------------- */
+
+body{
+    background-color: #EDEAE5;
+}
+
+main{
+    min-height: 76.4vh;
+    font-size: 20px;
+}
+
+ul.SobreNosotros{
+    display: flex;
+    margin: 50px;
+}
+
+ul.SobreNosotros li{
+    margin: 20px;
+}
+
+div.line{
+    height: 10px;
+    width: 80%;
+    margin: 0% 10% 0% 10%;
+    background-color: grey;
+}
+
+ul.Devs{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: space-around;
+}
+
+li.Dev{
+    width: 310px;
+    margin: 20px;
+    border: 10px outset grey;
+    padding: 10px;
+    background-color: #FFF9C7;
+    text-align: justify;
+}
+
+img.DevImg{
+    width: 270px;
+    height: 370px;
+    border: 5px solid black;
+}
+
+li div{
+    text-align: center;
+}
+
+/* ---------------------------------------------------------------------- Sección del Footer ----------------------------------------------------------------- */
+
+footer{
+    background-color: #001314;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+}
+
+footer h2{
+    font-family: 'Love Ya Like A Sister', cursive;
+    margin-top: 20px;
+    color: white;
+}
+
+footer ul{
+    display: flex;
+    justify-content: center;
+}
+
+footer li{
+    margin: 0px 20px 0px 20px;
+}
+
+footer img{
+    width: 50px;
+    height: 50px;
+}
