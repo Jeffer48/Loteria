@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100 vh;
+    background-color: white;
+    display: flex;
+}
+
+.tabla {
+    width: 640px;
+    height: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    perspective: 1000px;
+}
+
+.loteria-card {
+    width: calc(25% - 10px);
+    height: calc(33.333333% - 10px);
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transform: transform .5s;
+}
+
+.front-card,
+.back-card {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-color: darkorange;
+    border-radius: 5px;
+    position: absolute;
+}
+
+.front-card {
+    transform: rotateY(180deg);
+}
+
+
+/*
+.loteria-card:active {
+    transform: scale(0.97);
+    transform: transform 0.2s;
+}*/
+
+.loteria-card.flip {
+    transform: rotateY(180deg);
+}
