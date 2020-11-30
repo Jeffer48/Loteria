@@ -2,60 +2,56 @@ let inicio = 0;
 //Arreglo que contara las 61 cartas
 let arr = new Array(61);
 arr[0] = Math.floor((Math.random() * 59) + 2);
-        setInterval(()=> {
-            //Inicio nos dara el tope de cartas maximas que tenemos
-            inicio++;
-            //Contador sera el que nos ayudara a poner limites en el ciclo while para checar cartas repetidas
-            contador = 0;
-            if(inicio<61){
-                let randomCard = Math.floor((Math.random() * 59) + 2);//Generamos las cartas
-                //verificamos los numero para que no se repitan las cartas
-                while(contador<inicio){
-                    //Si la carta en la posicion inicio es la misma que el randomCard y inicio diferente que el ultimo dato
-                    if (randomCard === arr[contador] && contador != inicio - 1) {
-                        //generamos otro numero y volvemos a empezar la busqueda
-                        randomCard = Math.floor((Math.random() * 59) + 2);
-                        arr[inicio - 1] = randomCard;
-                        contador = 0;
-                    }else if ((contador + 1) == inicio) {
-                        //introducimos el numero en el arreglo y salimos del ciclo for
-                        arr[inicio - 1] = randomCard;
-                        contador = 78; //lo utilizamos para salir del ciclo
-                    }
-                       
-                    contador++;
-                }
-                //funcion para ir metiendo las cartas a un arreglo, pasandole valores
-            agregar(randomCard,inicio,arr);
-
-            //ponemos la etiqueta imagen con la carta de loteria en una varible con el numero random que nos dio
-            let salida = `<img src="img/Cartas/Loteria-${randomCard}.png" alt="Carta de loteria" class="cartas-juego"></img>`;
-            //sacamos el div con el id para agregar la etiqueta imagen el index nos indica el numero de div
-            document.getElementById("salida").innerHTML = salida;
-            //console.log(randomCard);
+setInterval(() => {
+    //Inicio nos dara el tope de cartas maximas que tenemos
+    inicio++;
+    //Contador sera el que nos ayudara a poner limites en el ciclo while para checar cartas repetidas
+    contador = 0;
+    if (inicio < 61) {
+        let randomCard = Math.floor((Math.random() * 59) + 2); //Generamos las cartas
+        //verificamos los numero para que no se repitan las cartas
+        while (contador < inicio) {
+            //Si la carta en la posicion inicio es la misma que el randomCard y inicio diferente que el ultimo dato
+            if (randomCard === arr[contador] && contador != inicio - 1) {
+                //generamos otro numero y volvemos a empezar la busqueda
+                randomCard = Math.floor((Math.random() * 59) + 2);
+                arr[inicio - 1] = randomCard;
+                contador = 0;
+            } else if ((contador + 1) == inicio) {
+                //introducimos el numero en el arreglo y salimos del ciclo for
+                arr[inicio - 1] = randomCard;
+                contador = 78; //lo utilizamos para salir del ciclo
             }
-                }, 100);
-            
-    
-function agregar (cadena,i,arr){
+
+            contador++;
+        }
+        //funcion para ir metiendo las cartas a un arreglo, pasandole valores
+        agregar(randomCard, inicio, arr);
+
+        //ponemos la etiqueta imagen con la carta de loteria en una varible con el numero random que nos dio
+        let salida = `<img src="img/Cartas/Loteria-${randomCard}.png" alt="Carta de loteria" class="cartas-juego"></img>`;
+        //sacamos el div con el id para agregar la etiqueta imagen el index nos indica el numero de div
+        document.getElementById("salida").innerHTML = salida;
+        //console.log(randomCard);
+    }
+}, 2000);
+
+
+function agregar(cadena, i, arr) {
     arr[i] = cadena;
     //console.log(arr);
-    
+
     console.log(cadena);
 }
-    
 
 (function() {
     "use strict";
     const cards = document.querySelectorAll(".loteria-card");
-<<<<<<< HEAD
 
     /*let firstCard, secondCard;
-=======
     const cardsl = document.querySelectorAll(".cartas-juego");
     const botoni = document.querySelectorAll(".boton-inicio");
     let firstCard, secondCard;
->>>>>>> 81a9b11674e0339dc6cf2f8a836c102f63c32fdf
     let hasFlippedCard = false;
     let lockBoard = false;
     let match = 0;
@@ -75,17 +71,7 @@ function agregar (cadena,i,arr){
         checkForMatch();
         FindelJuego();
     }*/
-
-<<<<<<< HEAD
-    //funcion para generar las cartas aleatoriamente 
-=======
-
-  
-
-   
-
     /* funcion para generar las cartas aleatoriamente */
->>>>>>> 81a9b11674e0339dc6cf2f8a836c102f63c32fdf
     (function Agregarcartas() {
         let index = 0; //sirve para recorrer los div de la pagina JuegoLoteria
         //en este arreglo guarda los numeros de la carta
@@ -125,6 +111,8 @@ function agregar (cadena,i,arr){
         });
 
     })();
+
+    /* */
 
     /*function FindelJuego() {
         setTimeout(() => {

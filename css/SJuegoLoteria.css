@@ -1,71 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Chilanka&display=swap');
-html {
+
+/*html {
     margin: 0px;
-<<<<<<< HEAD
     height: 100%;
     width: 100%;
-}
+}*/
 
 body {
-    margin: 0;
+    margin: 0px;
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 40% 20% 40%;
-    grid-template-rows: 100% 0% 0%;
+    grid-template-columns: 40% 20% 40% minmax(0px, auto);
+    grid-template-rows: 50% minmax(0px, auto) minmax(0px, auto);
+    grid-gap: 1px;
     overflow: hidden;
 }
 
 
 /*-------------Secciones del body ----------*/
 
+
+/*--------------Jugadores-------------------*/
+
 .Jugadores {
-    width: 33.33333%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: 20% 30% 50%;
-    grid-template-columns: repeat(1, 298%);
-}
-
-.datos-jugador {
-    width: 20%;
-    height: 100%;
-=======
-    padding: 0px;
-    box-sizing: border-box;
-    
-}
-
-body {
-    height: 100 vh;
-    background-color: white;
-    display: flex;
-    display: grid;
-    grid-template-columns: 1fr 50px 1fr;
->>>>>>> 81a9b11674e0339dc6cf2f8a836c102f63c32fdf
-}
-
-.tabla {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 23.2%);
-    grid-template-rows: repeat(4, 23.4%);
-    grid-gap: 10px 10px;
-    margin-right: 1.8%;
-    margin-top: 0.5%;
-    margin-bottom: 0.1%;
-    background: url('../img/Tableros/tablero-10.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: 100% 100%;
+    grid-template-rows: 20% 30% 50% minmax(-1px, auto);
+    grid-template-columns: 100%;
+    background-color: #f5fdfb;
 }
 
-#imgUsuario {
-    width: 70px;
-    height: 70px;
-    margin-top: 10%;
+.home-Sala {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#home {
+    width: 30%;
+    height: 90%;
+    margin-left: 10%;
+    font-size: 85%;
+    background-color: #FBE180;
+    color: black;
+}
+
+.Sala {
+    margin-left: 10%;
 }
 
 .usuario {
@@ -74,93 +58,111 @@ body {
     align-items: center;
 }
 
-.home-Sala {
-    display: flex;
-    align-items: center;
-}
-
-.home {
-    width: 35%;
-    height: 20%;
-    margin-left: 10%;
-}
-
-.Sala {
-    margin-left: 10%;
-}
-
-#carouselExampleInterval {
-    width: 100%;
-    height: 100%;
-}
-
-.carousel-inner {
-    width: 100%;
-    height: 100%;
+#imgUsuario {
+    width: 70px;
+    height: 70px;
+    margin-top: 10%;
+    border-radius: 50%;
 }
 
 .competidores {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
-    margin: 10%;
-    grid-gap: 5px 5px;
+    margin: 2%;
+    align-items: center;
+    justify-items: center;
+    /*grid-gap: 2% 15%;*/
 }
 
+.card {
+    width: 50%;
+    height: 90%;
+}
+
+.card-img-top {
+    width: 50%;
+    height: 50%;
+}
+
+.card-text {
+    height: 20%;
+}
+
+
+/*----------Datos del jugador------*/
+
+.mazo-cartas {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    background-color: #f5fdfb;
+    grid-template-rows: 40% 50% 10%;
+    justify-items: center;
+}
+
+.cartas-juego {
+    width: 100%;
+    height: 80%;
+}
+
+#fondo-img {
+    margin: 2%;
+    width: 8%;
+    height: 18%;
+    position: relative;
+}
+
+.BotonLoteria {
+    width: 100%;
+    height: 100%;
+}
+
+#LoteriaBoton {
+    width: 90%;
+    height: 80%;
+    background-color: #FBE180;
+    color: black;
+}
+
+
+/*
 .boton-inicio {
+     border-radius: 80px;
     width: 50px;
     height: 40px;
     display: grid;
     grid-column: 2;
     grid-row: 1;
-}
+}*/
 
-.cartas-juego{
-    width: 200px;
-    height: 300px;
+
+/*----------Tablero de cartas------*/
+
+.tabla {
+    width: 100%;
+    height: 98%;
     display: grid;
-    grid-column: 1;
-    grid-row: 1; 
-}
-#fondo-img{
-    margin: 5px;
-    width: 200px;
-    height: 300px;
-    position: relative;
-    
+    grid-template-columns: repeat(4, 23.2%);
+    grid-template-rows: repeat(4, 23.4%);
+    grid-gap: 10px 10px;
+    border: black solid 3px;
+    margin-right: 2%;
+    margin-top: 0.2%;
+    margin-bottom: 0.1%;
+    background: url('../img/Tableros/tablero-7.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100% 100%;
 }
 
 .loteria-card {
     width: 100%;
     height: 100%;
-    /*width: calc(25% - 10px);
-    height: calc(33.333333% - 10px);*/
-    /*margin: 5px;*/
-    /*position: relative;
-    transform: scale(1);
-    transform-style: preserve-3d;
-    transform: transform .5s;*/
 }
 
 .front-card {
     width: 100%;
     height: 100%;
-    /*padding: 20px;
-    background-color: darkorange;
-    border-radius: 5px;
-    position: absolute;
-    transform: rotateY(180deg);*/
 }
-
-
-/*
-.loteria-card:active {
-    transform: scale(0.97);
-    transform: transform 0.2s;
-}*/
-
-
-/*
-.loteria-card.flip {
-    transform: rotateY(180deg);
-}*/
