@@ -33,6 +33,7 @@ setInterval(() => {
         //sacamos el div con el id para agregar la etiqueta imagen el index nos indica el numero de div
         document.getElementById("salida").innerHTML = salida;
         //console.log(randomCard);
+        val();
     }
 }, 2000);
 
@@ -159,3 +160,29 @@ function agregar(cadena, i, arr) {
 
 
 })();
+
+/*-----------------------------------Validaciones------------------------------------------*/
+let cartasAtrasadas = new Array();      //Arreglo de cartas pasadas
+const cartasTablero = document.querySelectorAll('.loteria-card');
+cartasTablero.forEach(carta => carta.addEventListener('click', validar));
+
+function validar() {
+    let cartaJugador = this; //Con esto guardo la opción de la carta seleccionada
+    
+    cartasAtrasadas.forEach(cartaA => match(cartaA));
+    
+    let isMatch = false;
+    function match(cartaA){
+        if(cartaA.src == cartaJugador.lastElementChild.src) {
+            let ficha = `<img src="../img/ficha.png" alt="ficha" width="80px" height="80px" style="position: absolute; left: 30px; top: 30px"></img>`;
+            cartaJugador.innerHTML += ficha; //Se agrega la ficha, necesita sumarse para no eliminar la carta
+            console.log('match');
+            console.log(cartaJugador);
+        }
+    }
+}
+
+function val(){
+    let carta = document.querySelector('.cartas-juego').firstChild;
+    cartasAtrasadas.push(carta);
+}
