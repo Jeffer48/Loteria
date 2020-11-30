@@ -1,0 +1,14 @@
+/* Nav*/
+
+a.navbar-brand{/*Carcateristicas del logo*/
+    font-size: 40px;
+    margin-right: 75px;
+    font-family: 'Love Ya Like A Sister', cursive;
+    
+}
+
+a.nav-link{    /*Caracteristicas del menu*/
+    font-size: 30px;
+    font-family: 'VT323', monospace;
+    margin: 10px 10px;
+}

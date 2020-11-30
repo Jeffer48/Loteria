@@ -6,17 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/SJuegoLoteria.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styleallpages.css"> 
     <script src="js/JuegoLoteria.js" defer></script>
     <script src="js/validaciones.js" defer type="text/javascript"></script>
     <title>Loteria</title>
 </head>
 
 <body>
+   <div class="wrapper">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><img src="img/Logos/LOGO-2.png" alt="" width="75" height="75">Juego</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="#">Perfil</a>
+                    <a class="nav-link" href="Sobre%20Nosotros.html">Sobre nosotros</a>
+                    <a class="nav-link" href="#">Tienda</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
     <section class="Jugadores">
-        <div class="home-Sala">
+        <!--<div class="home-Sala">
             <a id="home" href="#" class="btn btn-primary btn-lg active" tabindex="-1" role="button" aria-disabled="true">Home</a>
             <label class="Sala">Sala:</label>
-        </div>
+        </div>-->
         <div class="usuario">
             <img id="imgUsuario" src="img/Cris.png" alt="Imagen del usuario">
             <p>Nombre del usuario</p>
@@ -57,10 +76,10 @@
         <div class="cartas-juego" id="salida">
             <img src="img/Cartas/Loteria-01.png" id="fondo-img">
         </div>
-        <!--<button class="boton-inicio">Iniciar</button>-->
+        <!--<button class="boton-inicio">Iniciar</button>
         <div class="fichas">
             fichas
-        </div>
+        </div>-->
         <div class="BotonLoteria">
             <button id="LoteriaBoton" type="button" class="btn btn-primary">Loteria</button>
         </div>
@@ -89,6 +108,7 @@
     <section class="mensajes">
         <p id="carta-incorrecta" style="visibility: collapse">!Carta Incorrecta¡</p>
     </section>
+    </div>
 </body>
 
 </html>
