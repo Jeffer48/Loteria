@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/SJuegoLoteria.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/JuegoLoteria.js" defer></script>
+    <script src="js/validaciones.js" defer type="text/javascript"></script>
     <title>Loteria</title>
 </head>
 
@@ -66,23 +67,27 @@
     </section>
 
 
-    <section class="tabla">
-        <div class="loteria-card" id="posicion1" data-carta="posicion1"></div>
-        <div class="loteria-card" id="posicion2" data-carta="posicion2"></div>
-        <div class="loteria-card" id="posicion3" data-carta="posicion3"></div>
-        <div class="loteria-card" id="posicion4" data-carta="posicion4"></div>
-        <div class="loteria-card" id="posicion5" data-carta="posicion5"></div>
-        <div class="loteria-card" id="posicion6" data-carta="posicion6"></div>
-        <div class="loteria-card" id="posicion7" data-carta="posicion7"></div>
-        <div class="loteria-card" id="posicion8" data-carta="posicion8"></div>
-        <div class="loteria-card" id="posicion9" data-carta="posicion9"></div>
-        <div class="loteria-card" id="posicion10" data-carta="posicion10"></div>
-        <div class="loteria-card" id="posicion11" data-carta="posicion11"></div>
-        <div class="loteria-card" id="posicion12" data-carta="posicion12"></div>
-        <div class="loteria-card" id="posicion13" data-carta="posicion13"></div>
-        <div class="loteria-card" id="posicion14" data-carta="posicion14"></div>
-        <div class="loteria-card" id="posicion15" data-carta="posicion15"></div>
-        <div class="loteria-card" id="posicion16" data-carta="posicion16"></div>
+    <section class="tabla" style="position: relative">
+        <div class="loteria-card" id="posicion1" data-carta="posicion1" style="position: relative"></div>
+        <div class="loteria-card" id="posicion2" data-carta="posicion2" style="position: relative"></div>
+        <div class="loteria-card" id="posicion3" data-carta="posicion3" style="position: relative"></div>
+        <div class="loteria-card" id="posicion4" data-carta="posicion4" style="position: relative"></div>
+        <div class="loteria-card" id="posicion5" data-carta="posicion5" style="position: relative"></div>
+        <div class="loteria-card" id="posicion6" data-carta="posicion6" style="position: relative"></div>
+        <div class="loteria-card" id="posicion7" data-carta="posicion7" style="position: relative"></div>
+        <div class="loteria-card" id="posicion8" data-carta="posicion8" style="position: relative"></div>
+        <div class="loteria-card" id="posicion9" data-carta="posicion9" style="position: relative"></div>
+        <div class="loteria-card" id="posicion10" data-carta="posicion10" style="position: relative"></div>
+        <div class="loteria-card" id="posicion11" data-carta="posicion11" style="position: relative"></div>
+        <div class="loteria-card" id="posicion12" data-carta="posicion12" style="position: relative"></div>
+        <div class="loteria-card" id="posicion13" data-carta="posicion13" style="position: relative"></div>
+        <div class="loteria-card" id="posicion14" data-carta="posicion14" style="position: relative"></div>
+        <div class="loteria-card" id="posicion15" data-carta="posicion15" style="position: relative"></div>
+        <div class="loteria-card" id="posicion16" data-carta="posicion16" style="position: relative"></div>
+    </section>
+    
+    <section class="mensajes">
+        <p id="carta-incorrecta" style="visibility: collapse">!Carta Incorrecta¡</p>
     </section>
 </body>
 
