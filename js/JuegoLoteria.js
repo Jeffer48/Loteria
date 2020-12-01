@@ -45,7 +45,7 @@ function agregar(cadena, i, arr) {
     console.log(cadena);
 }
 
-(function() {
+(function () {
     "use strict";
     const cards = document.querySelectorAll(".loteria-card");
 
@@ -162,27 +162,38 @@ function agregar(cadena, i, arr) {
 })();
 
 /*-----------------------------------Validaciones------------------------------------------*/
-let cartasAtrasadas = new Array();      //Arreglo de cartas pasadas
+let cartasAtrasadas = new Array(); //Arreglo de cartas pasadas
 const cartasTablero = document.querySelectorAll('.loteria-card');
 cartasTablero.forEach(carta => carta.addEventListener('click', validar));
 
+let puntaje = 0;
+
 function validar() {
     let cartaJugador = this; //Con esto guardo la opción de la carta seleccionada
-    
+
     cartasAtrasadas.forEach(cartaA => match(cartaA));
-    
+
     let isMatch = false;
-    function match(cartaA){
-        if(cartaA.src == cartaJugador.lastElementChild.src) {
+
+    function match(cartaA) {
+        if (cartaA.src == cartaJugador.lastElementChild.src) {
             let ficha = `<img src="../img/ficha.png" alt="ficha" width="80px" height="80px" style="position: absolute; left: 30px; top: 30px"></img>`;
             cartaJugador.innerHTML += ficha; //Se agrega la ficha, necesita sumarse para no eliminar la carta
+            puntaje++;
+            if (puntaje == 16) {
+                let inicion = 63;
+                setTimeout(() => {
+                    alert("GANASTE!!");
+                }, 800);
+            }
+            console.log('El puntaje es ' + puntaje);
             console.log('match');
             console.log(cartaJugador);
         }
     }
 }
 
-function val(){
+function val() {
     let carta = document.querySelector('.cartas-juego').firstChild;
     cartasAtrasadas.push(carta);
 }
