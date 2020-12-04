@@ -1,0 +1,48 @@
+*{
+    list-style: none;
+}
+
+body{
+    background-color: #EDEAE5;
+    height: 100vh;
+}
+
+main{
+    text-align: -webkit-center;
+    margin-top: 5%;
+}
+
+.LoginBox{
+    background-color: #FBE180;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px grey;
+}
+
+li{
+    margin: 5px;
+}
+
+.datos{
+    padding: 0px;
+}
+
+.LoginBox img{
+    width: 100px;
+    height: 100px;
+    margin-left: 150px;
+}
+
+label{
+    display: block;
+}
+
+button{
+    margin: 10px;
+    background-color: #001314 !important;
+    box-shadow: 5px 5px 2px grey;
+}
