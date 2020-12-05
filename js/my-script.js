@@ -38,10 +38,24 @@ edad.addEventListener("input", (event) => {
 const nombre = document.getElementById("nombre");
 nombre.addEventListener("input", (event) => {
     //3. Validar que el campo es correcto
-    if (nombre.length == 0) {
+    if (nombre.validity.tooShort) {
         //4. Personalizar mensaje
         nombre.setCustomValidity("Por favor escribe tu nombre completo");
     } else {
         nombre.setCustomValidity("");
     }
 });
+
+const pass = document.getElementById("pass");
+pass.addEventListener("input", (event) => {
+    //3. Validar que el campo es correcto
+    
+    if (pass.validity.tooShort) {
+        //4. Personalizar mensaje
+        pass.setCustomValidity("Escriba contraseña de minimo 8 caracteres");
+    } else {
+        pass.setCustomValidity("");
+    }
+});
+
+
