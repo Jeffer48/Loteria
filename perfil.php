@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include 'conexion.php';
 
     if(!isset($_SESSION['usuario'])){
         echo "<script>window.alert('Primero inicie sesión')</script>";
@@ -11,6 +12,41 @@
 
     $nombre = $_SESSION['usuario'][1];
     $id = $_SESSION['usuario'][0];
+
+    $amigos = array();
+    $objetos = array();
+    $partidasJugadas = 0;
+    $partidasGanadas = 0;
+    $partidasPerdidas = 0;
+
+    $sql = "SELECT monedas, imagenPerfil FROM usuario WHERE idUsuario = '$id'";
+    $respuesta = mysqli_fetch_array(solicitarDatos($sql));
+    $monedas = $respuesta[0];
+    $imagenPerfil = $respuesta[1];
+
+    $sql = "SELECT amigo FROM amigos WHERE idUsuario = '$id'";
+    $respuesta = solicitarDatos($sql);
+
+    while($fila = mysqli_fetch_array($respuesta)){
+        array_push($amigos,$fila[0]);
+    }
+
+    $sql = "SELECT idObjeto FROM compras WHERE idUsuario = '$id'";
+    $respuesta = solicitarDatos($sql);
+
+    while($fila = mysqli_fetch_array($respuesta)){
+        array_push($objetos,$fila[0]);
+    }
+
+    $sql = "SELECT ganador FROM partidas WHERE host = '$id'";
+    $respuesta = solicitarDatos($sql);
+
+    while($fila = mysqli_fetch_array($respuesta)){
+        if($fila[0] == $id) $partidasGanadas += 1;
+        else $partidasPerdidas += 1;
+    }
+
+    $partidasJugadas = $partidasGanadas + $partidasPerdidas;
 ?>
 
 <!DOCTYPE html>
@@ -49,16 +85,16 @@
                 <div class="row">
                     <ul class="estadisticas">
                         <li>
-                            <h3>Proporción</h3>
-                            <h1></h1>
+                            <h3>Partidas Jugadas</h3>
+                            <h1><?php echo $partidasJugadas ?></h1>
                         </li>
                         <li>
                             <h3>Partidas Ganadas</h3>
-                            <h1>13</h1>
+                            <h1><?php echo $partidasGanadas ?></h1>
                         </li>
                         <li>
-                            <h3>Partidas Jugadas</h3>
-                            <h1>20</h1>
+                            <h3>Partidas Perdidas</h3>
+                            <h1><?php echo $partidasPerdidas ?></h1>
                         </li>
                     </ul>
                 </div>
@@ -67,7 +103,7 @@
         <div class="row segunda">
             <div class="monedas">
                 <img src="img/ficha.png" alt="Imagen de moneda" style="width: 200px; height: 200px;">
-                <h4>Monedas: 100</h4>
+                <h4>Monedas: <?php echo $monedas ?></h4>
                 <button type="button" class="btn btn-warning">Inventario</button>
             </div>
             <div>
