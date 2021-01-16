@@ -1,3 +1,31 @@
+<?php
+    session_start();
+    include 'conexion.php';
+
+    if(isset($_POST['submit'])){
+        $correo = $_POST['email'];
+        $contraseña = $_POST['pass'];
+
+        $sql = "SELECT idUsuario, nombre FROM usuario WHERE email = '$correo' AND contraseña = '$contraseña'";
+
+        $respuesta = mysqli_fetch_array(solicitarDatos($sql));
+
+        if($respuesta > 0){
+            $nombre = $respuesta[1];
+            echo "<script>window.alert('Bienvenido $nombre')</script>";
+
+            $_SESSION['usuario'][0] = $respuesta[0];
+            $_SESSION['usuario'][1] = $nombre;
+
+            echo "<script> 
+            window.location.replace('home.php'); 
+            </script>";
+        }else{
+            echo "<script>window.alert('Datos incorrectos')</script>";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,30 +40,13 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#"><img src="img/Logos/LOGO-2.png" alt="" width="75" height="75">Iniciar Sesión</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" href="Home.html">Home</a>
-                    <a class="nav-link" href="#">Perfil</a>
-                    <a class="nav-link" href="Sobre%20Nosotros.html">Sobre nosotros</a>
-                    <a class="nav-link" href="#">Tienda</a>
-                    <a class="nav-link" href="JuegoLoteria.html">Juego</a>
-                    <a class="nav-link" href="Registro.html">Registrarse</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <?php include 'header.php' ?>
 
     <main>
         <div class="LoginBox">
             <img src="img/Circulo.png" alt="User">
             <h2>Ingresar</h2>
-            <form action="Home.html" method="get">
+            <form action="Login.php" method="POST">
                 <ul class="datos">
                     <li>
                         <label for="email">Correo</label>
@@ -46,7 +57,7 @@
                         <input type="password" id="pass" name="pass" placeholder="Contraseña" required minlength="8">
                     </li>
                     <li>
-                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Ingresar</button>
                     </li>
                 </ul>
             </form>

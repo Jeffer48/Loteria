@@ -1,0 +1,48 @@
+*{
+    list-style: none;
+}
+
+body{
+    background-color: #EDEAE5;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.row{
+    margin: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+h1{
+    text-align: center;
+}
+
+.imgPerfil{
+    width: 400px;
+    height: 400px;
+}
+
+.perfil{
+    text-align: center;
+}
+
+.estadisticas{
+    display: flex;
+}
+
+.estadisticas li{
+    margin: 20px;
+}
+
+.segunda{
+    min-height: 300px;
+}
+
+.monedas{
+    text-align: center;
+}

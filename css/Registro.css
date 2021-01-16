@@ -15,8 +15,8 @@ main{
 
 .Registrobox{
     background-color: #9FEDD7;
-    width: 400px;
-    height: 650px;
+    width: 450px;
+    height: 750px;
     display: flex;
     flex-direction: column;
     justify-content:center;
@@ -39,7 +39,7 @@ li{
     width: 100px;
     height: 100px;
     margin-top: 70px;
-    margin-left: 150px;
+    margin-left: 175px;
 }
 
 label{

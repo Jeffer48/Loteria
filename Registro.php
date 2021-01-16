@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,46 +16,37 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#"><img src="img/Logos/LOGO-2.png" alt="" width="75" height="75">Regístrate</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" href="Home.html">Home</a>
-                    <a class="nav-link" href="#">Perfil</a>
-                    <a class="nav-link" href="Sobre%20Nosotros.html">Sobre nosotros</a>
-                    <a class="nav-link" href="#">Tienda</a>
-                    <a class="nav-link" href="JuegoLoteria.html">Juego</a>
-                    <a class="nav-link" href="Login.html">Login</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <?php include 'header.php' ?>
     <main>
         <div class="Registrobox">
             <img src="img/Circulo.png" alt="User">
             <h2>Registrarse</h2>
             <p>*Campos requeridos</p>
-            <form action="Home.html" method="get">
+            <form action="Registro.php" method="POST">
                 <ul class="datos">
                     <li>
                         <label for="nombre">Nombre*</label>
-                        <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" class="form-control" required minlength="3">>
+                        <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" class="form-control" required minlength="3">
+                    </li>
+                    <li>
+                        <label for="apellidoP">Apellido Paterno*</label>
+                        <input type="text" name="apellidoP" id="apellidoP" placeholder="Ingresa tu apellido Paterno" class="form-control" required minlength="3">
+                    </li>
+                    <li>
+                        <label for="apellidoM">Apellido Materno*</label>
+                        <input type="text" name="apellidoM" id="apellidoM" placeholder="Ingresa tu apellido Materno" class="form-control" required minlength="3">
                     </li>
                     <li>
                         <label for="email">E-Mail*</label>
                         <input type="email" name="email" id="email" placeholder="ejemplo@correo.com" class="form-control" required>
                     </li>
                     <li>
-                        <label for="edad">Edad*</label>
-                        <input type="number" name="edad" min="8" max="100" id="edad" placeholder="Ingresa tu edad" class="form-control" required>
-                    </li>
-                    <li>
                         <label for="pass">Contraseña*</label>
                         <input type="password" name="pass" id="pass" placeholder="Ingresa contraseña" class="form-control" required minlength="8" >
+                    </li>
+                    <li>
+                        <label for="img">Imagen de perfil</label>
+                        <input type="file" name="img">
                     </li>
                     <li>
                         <label class="form-check-label" for="terminos">Aceptar términos y condiciones</label>
@@ -59,7 +54,7 @@
                     </li>
                     <br>
                     <li>
-                        <button type="submit" class="btn btn-primary" id="boton">Registrar</button>
+                        <button type="submit" name="submit" class="btn btn-primary" id="submit">Registrar</button>
                     </li>
                 </ul>
             </form>
@@ -79,3 +74,32 @@
 </body>
 
 </html>
+
+<?php
+    include 'conexion.php';
+
+    if(isset($_POST['submit'])){
+        $nombre = $_POST['nombre'];
+        $apellidoP = $_POST['apellidoP'];
+        $apellidoM = $_POST['apellidoM'];
+        $correo = $_POST['email'];
+        $contraseña = $_POST['pass'];
+        $foto = $_POST['img'];
+
+        $sql = "SELECT email FROM usuario WHERE email = '$correo'";
+
+        $respuesta = mysqli_fetch_array(solicitarDatos($sql));
+
+        if($respuesta > 0){
+            echo "<script>window.alert('El correo se encuentra en uso')</script>";
+        }else{
+            $sql = "INSERT INTO usuario(nombre, apellidoPaterno, apellidoMaterno, email, contraseña, imagenPerfil) VALUES ('$nombre', '$apellidoP', '$apellidoM', '$correo', '$contraseña', '$foto');";
+
+            guardarDatos($sql);
+
+            echo "<script> 
+            window.location.replace('home.php'); 
+            </script>";
+        }
+    }
+?>
