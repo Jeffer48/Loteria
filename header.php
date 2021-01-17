@@ -7,7 +7,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="Sobre%20Nosotros.php">Sobre nosotros</a>
-                    <a class="nav-link" href="#">Tienda</a>
+                    <a class="nav-link" href="tienda.php">Tienda</a>
                     <a class="nav-link" href="JuegoLoteria.php">Juego</a>
                     <?php
                         if(!isset($_SESSION['usuario'])){
