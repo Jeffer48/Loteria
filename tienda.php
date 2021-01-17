@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include 'conexion.php';
 
     $sql = 'SELECT idObjeto, nombreOb, imagenOb, precioOb, descripcion FROM objetos ORDER BY idObjeto';
@@ -55,15 +56,16 @@
             <p style="text-align: justify"><b>Precio:
             </b>'.'$'.$precioOb[$i].'.00'.'</p>
         </div>
-        <div class="card-action right-align">
-            <a class="brand-text" href="Home.php">Comprar</a>
-        </div>
+        <form class="formcarrito" action="carrito.php?accion=agregar&id='.$idObjeto[$i].'" method="post">
+            <div class="card-action right-align">
+                <input type="submit" name="Agregar" value="Comprar" class="brand-text">    
+            </div>
+        </form>
     </li>
       '; 
     }
     ?>
-    
-    
+    <!--<a class="brand-text" href="">Comprar</a>-->
     </main>
     <footer>
         <h2>Contáctanos</h2>

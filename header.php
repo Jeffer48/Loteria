@@ -7,7 +7,6 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="Sobre%20Nosotros.php">Sobre nosotros</a>
-                    <a class="nav-link" href="tienda.php">Tienda</a>
                     <a class="nav-link" href="JuegoLoteria.php">Juego</a>
                     <?php
                         if(!isset($_SESSION['usuario'])){
@@ -15,6 +14,7 @@
                             <a class="nav-link" href="Registro.php">Registrarse</a>';
                         }else{
                             echo '<a class="nav-link" href="carrito.php">Carrito</a>
+                            <a class="nav-link" href="tienda.php">Tienda</a>
                             <a class="nav-link" href="perfil.php">Perfil</a>
                             <a class="nav-link" href="logout.php">Cerrar Sesión</a>';
                         }
