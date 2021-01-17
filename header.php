@@ -14,7 +14,8 @@
                             echo '<a class="nav-link" href="Login.php">Login</a>
                             <a class="nav-link" href="Registro.php">Registrarse</a>';
                         }else{
-                            echo '<a class="nav-link" href="perfil.php">Perfil</a>
+                            echo '<a class="nav-link" href="carrito.php">Carrito</a>
+                            <a class="nav-link" href="perfil.php">Perfil</a>
                             <a class="nav-link" href="logout.php">Cerrar Sesión</a>';
                         }
                     ?>
