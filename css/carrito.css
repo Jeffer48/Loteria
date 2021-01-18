@@ -1,0 +1,115 @@
+body {
+    padding: 0 0 1em;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    height: 90%;
+}
+
+body h1 {
+    margin: 1% 20% 0% 20%;
+}
+
+article {
+    width: 70%;
+    height: 100%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 3%;
+    margin-bottom: 1%;
+    border: #9FEDD7 outset 2px;
+    background-color: #e7faf5;
+    padding: 0 0 0.1em;
+}
+
+table {
+    width: 96%;
+    height: 80%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+    padding: 0 0 0.1em;
+}
+
+tbody {
+    width: 100%;
+    height: 50%;
+    margin: 0%;
+}
+
+tr.titulos {
+    width: 20%;
+    height: 1%;
+}
+
+th {
+    width: 25%;
+    padding: 0px;
+    text-align: center;
+}
+
+table tbody tr.articulos td {
+    text-align: center;
+    padding: 0px;
+}
+
+table tbody tr.articulos td img.imgProducto {
+    width: 40%;
+    height: 80%;
+    padding: 0px;
+}
+
+form {
+    width: 100%;
+    height: 10%;
+    padding: 0 0 0.1em;
+}
+
+form label {
+    margin-left: 50%;
+    width: 20%;
+}
+
+form input {
+    width: 15%;
+    height: 50%;
+    margin-left: 10%;
+    background-color: #FBE180;
+    border: #FBE180 none 0px;
+    border-radius: 10px;
+}
+
+aside {
+    width: 20%;
+    height: 100%;
+    margin: 3%;
+    border: #9FEDD7 outset 2px;
+    background-color: #e7faf5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+aside a {
+    width: 50%;
+    height: 20%;
+    margin: 5% 0% 5% 0%;
+    text-align: center;
+}
+
+aside a:active {
+    transform: scale(0.97);
+    transform: transform 0.2s;
+}
+
+aside a img {
+    width: 100%;
+    height: 90%;
+}
+
+aside a p {
+    width: 100%;
+    height: 10%;
+}
