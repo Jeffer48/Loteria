@@ -18,6 +18,14 @@ main{
     justify-content: space-around;
 }
 
+.amigos{
+    display: flex;
+}
+
+.amigos li{
+    margin: 5px;
+}
+
 h1{
     text-align: center;
 }

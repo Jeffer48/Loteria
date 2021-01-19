@@ -1,9 +1,9 @@
 <?php
 
     $dir = "localhost";
-    $user = "";
-    $pass = "";
-    $nombreBD = "";
+    $user = "jeffer";
+    $pass = "123";
+    $nombreBD = "loteria";
 
     function solicitarDatos($consulta){
         global $dir, $user, $pass, $nombreBD;
