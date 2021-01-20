@@ -1,11 +1,17 @@
 <?php
 
     $dir = "localhost";
+<<<<<<< HEAD
     $user = "loteria1";
     $pass = "1234";
     $nombreBD = "loteria";
 
     $con = mysqli_connect('localhost', 'loteria1', '1234', 'loteria');
+=======
+    $user = "jeffer";
+    $pass = "123";
+    $nombreBD = "loteria";
+>>>>>>> f794639783d0461c409a25222b54a62e7612535c
 
     function solicitarDatos($consulta){
         global $dir, $user, $pass, $nombreBD;
