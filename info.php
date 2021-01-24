@@ -2,7 +2,6 @@
     session_start();
     include 'conexion.php';
 
-
     $sql = 'SELECT idObjeto, nombreOb, imagenOb, precioOb, descripcion, info FROM objetos ORDER BY idObjeto';
 
     $respuesta = solicitarDatos($sql);
