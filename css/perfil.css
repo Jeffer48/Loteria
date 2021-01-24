@@ -24,6 +24,24 @@ main{
 
 .amigos li{
     margin: 5px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.imgOb{
+    width: 200px;
+    height: 200px;
+}
+
+.verPerfiles{
+    width: 100px;
+    height: 30px;
+    align-self: center;
+}
+
+.objetos{
+    display: flex;
 }
 
 h1{
@@ -53,4 +71,30 @@ h1{
 
 .monedas{
     text-align: center;
+}
+
+/* Lista amigos */
+
+.listAmi{
+    width: 150px;
+    height: 150px;
+}
+
+.modalAmi{
+    width: 200px;
+    height: 200px;
+}
+/* Solicitudes de amistad */
+
+.amiSol{
+    height: 100px;
+    width: 100px;
+}
+
+.solicitud{
+    display: flex;
+}
+
+.solicitudes{
+    padding: 0px;
 }
