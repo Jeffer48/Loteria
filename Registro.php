@@ -22,7 +22,7 @@
             <img src="img/Circulo.png" alt="User">
             <h2>Registrarse</h2>
             <p>*Campos requeridos</p>
-            <form action="Registro.php" method="POST">
+            <form action="Registro.php" method="POST" enctype="multipart/form-data">
                 <ul class="datos">
                     <li>
                         <label for="nombre">Nombre*</label>
@@ -46,7 +46,7 @@
                     </li>
                     <li>
                         <label for="img">Imagen de perfil</label>
-                        <input type="file" name="img">
+                        <input type="file" name="imagen" multiple>
                     </li>
                     <li>
                         <label class="form-check-label" for="terminos">Aceptar términos y condiciones</label>
@@ -84,16 +84,17 @@
         $apellidoM = $_POST['apellidoM'];
         $correo = $_POST['email'];
         $contraseña = $_POST['pass'];
-        $foto = $_POST['img'];
+        $imagen = $_FILES['imagen']['tmp_name'];
+        $imagenContent = addslashes(file_get_contents($imagen));
 
         $sql = "SELECT email FROM usuario WHERE email = '$correo'";
 
         $respuesta = mysqli_fetch_array(solicitarDatos($sql));
-
+        
         if($respuesta > 0){
             echo "<script>window.alert('El correo se encuentra en uso')</script>";
         }else{
-            $sql = "INSERT INTO usuario(nombre, apellidoPaterno, apellidoMaterno, email, contraseña, imagenPerfil) VALUES ('$nombre', '$apellidoP', '$apellidoM', '$correo', '$contraseña', '$foto');";
+            $sql = "INSERT INTO usuario(nombre, apellidoPaterno, apellidoMaterno, email, contraseña, imagenPerfil) VALUES ('$nombre', '$apellidoP', '$apellidoM', '$correo', '$contraseña', '$imagenContent');";
 
             guardarDatos($sql);
 
