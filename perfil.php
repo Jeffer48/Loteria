@@ -290,19 +290,21 @@
                 $sql = "SELECT estado FROM amigos WHERE idUsuario = $id AND amigo = $amigoID";
                 $request = mysqli_fetch_array(solicitarDatos($sql));
 
-                if($request[0] == 1) echo "<script>window.alert('Ya ha agregado a el jugador')</script>";
-                elseif($request[0] == 0) echo "<script>window.alert('Ya ha mandado solicitud')</script>";
-                elseif($request[0] == 2) echo "<script>window.alert('No puede mandar solicitud a este usuario')</script>";
+                if($request){
+                    if($request[0] == 1) echo "<script>window.alert('Ya ha agregado a el jugador')</script>";
+                    elseif($request[0] == 0) echo "<script>window.alert('Ya ha mandado solicitud')</script>";
+                    elseif($request[0] == 2) echo "<script>window.alert('No puede mandar solicitud a este usuario')</script>";
+                }
                 else{
                     $sql = "SELECT estado FROM amigos WHERE idUsuario = $amigoID AND amigo = $id";
                     $respuesta = mysqli_fetch_array(solicitarDatos($sql));
                     
-                    if($respuesta[0] == 0) echo "<script>window.alert('El usuario ya le mando solicitud')</script>";
+                    if($respuesta) echo "<script>window.alert('El usuario ya le mando solicitud')</script>";
                     else{
                         $sql = "INSERT INTO amigos(idUsuario, amigo, estado) VALUES ($id, $amigoID, 0)";
                         guardarDatos($sql);
 
-                        "<script>window.alert('Solicitud enviada')</script>";
+                        echo "<script>window.alert('Solicitud enviada')</script>";
                     }
                 }
             }
