@@ -15,7 +15,6 @@
             array_push($arraynombres,$fila[0]);
             array_push($arrayimagenes,$fila[1]);
         }
-
     }
 ?>
 <!DOCTYPE html>
@@ -49,7 +48,7 @@
             <?php for ($i=0; $i < count($arraynombres) ; $i++) { ?>
                 <?php if ($nombre != $arraynombres[$i]) { ?>
                     <div class="card">
-                        <img src="data:image/png;base64,<?php  echo base64_encode($arrayimagenes[$i]);?>" class="card-img-top" alt="...">
+                        <img src="data:image/png;base64,<?php echo base64_encode($arrayimagenes[$i]);?>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="card-text"><?php  echo $arraynombres[$i]; ?></p>
                         </div>

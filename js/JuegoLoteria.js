@@ -48,30 +48,6 @@ function agregar(cadena, i, arr) {
 (function() {
     "use strict";
     const cards = document.querySelectorAll(".loteria-card");
-
-    /*let firstCard, secondCard;
-    const cardsl = document.querySelectorAll(".cartas-juego");
-    const botoni = document.querySelectorAll(".boton-inicio");
-    let firstCard, secondCard;
-    let hasFlippedCard = false;
-    let lockBoard = false;
-    let match = 0;
-
-    /*function flipCard() {
-
-        if (lockBoard) return;
-        if (this === firstCard) return;
-        this.classList.add('flip');
-
-        if (!hasFlippedCard) {
-            hasFlippedCard = true;
-            firstCard = this;
-            return;
-        }
-        secondCard = this;
-        checkForMatch();
-        FindelJuego();
-    }*/
     /* funcion para generar las cartas aleatoriamente */
     (function Agregarcartas() {
         let index = 0; //sirve para recorrer los div de la pagina JuegoLoteria
@@ -113,56 +89,11 @@ function agregar(cadena, i, arr) {
 
     })();
 
-    /* */
-
-    /*function FindelJuego() {
-        setTimeout(() => {
-            if (match == 6)
-                alert("Has ganado")
-        }, 2000);
-    }
-
-    /* Funcion que revisa la igualdad de las cartas */
-    /* function checkForMatch() {
-         var puntaje = document.getElementById("puntaje");
-         if (firstCard.dataset.carta === secondCard.dataset.carta) {
-             disableCards();
-             match = 1 + match;
-             puntaje.innerHTML = match * 100;
-         } else {
-             unflipCards();
-         }
-     }
-
-     function unflipCards() {
-         lockBoard = true;
-         setTimeout(() => {
-             firstCard.classList.remove("flip");
-             secondCard.classList.remove("flip");
-             lockBoard = false;
-             resetBoard();
-         }, 1500);
-     }
-
-     function disableCards() {
-         firstCard.removeEventListener("click", flipCard);
-         secondCard.removeEventListener("click", flipCard);
-         resetBoard();
-     }
-
-     function resetBoard() {
-         [hasFlippedCard, lockBoard] = [false, false];
-         [firstCard, secondCard] = [null, null];
-     }
-
-     cards.forEach(card => card.addEventListener("click", flipCard));*/
-
-
-
 })();
 
 /*-----------------------------------Validaciones------------------------------------------*/
 let cartasAtrasadas = new Array(); //Arreglo de cartas pasadas
+sessionStorage.setItem("gano", "no");
 const cartasTablero = document.querySelectorAll('.loteria-card');
 cartasTablero.forEach(carta => carta.addEventListener('click', validar));
 
@@ -186,6 +117,7 @@ function validar() {
                 let inicion = 63;
                 setTimeout(() => {
                     alert("GANASTE!!");
+                    sessionStorage.setItem("gano", "si");
                 }, 800);
             }
             console.log('El puntaje es ' + puntaje);
