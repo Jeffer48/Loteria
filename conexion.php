@@ -1,11 +1,16 @@
 <?php
 
-    $dir = "localhost";
+    /*$dir = "localhost";
     $user = "loteria1";
     $pass = "1234";
+    $nombreBD = "loteria";*/
+
+    $dir = "localhost";
+    $user = "adminCA";
+    $pass = "Coms-Cc5.97";
     $nombreBD = "loteria";
 
-    $con = mysqli_connect('localhost', 'loteria1', '1234', 'loteria');
+    // $con = mysqli_connect('localhost', 'loteria1', '1234', 'loteria');
 
 
     function solicitarDatos($consulta){

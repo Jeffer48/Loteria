@@ -1,3 +1,23 @@
+<?php
+    session_start();
+    include 'conexion.php';
+    $nombre; $monedas; $imagen;
+    $arraynombres=array(); $arrayimagenes=array();
+    if(isset($_SESSION['usuario'][1])){
+        $nombre = $_SESSION['usuario'][1];
+        $consulta = 'SELECT monedas, imagenPerfil FROM usuario WHERE nombre ="'.$nombre.'" ;';
+        $resultado = mysqli_fetch_assoc(solicitarDatos($consulta));
+        $imagen = $resultado['imagenPerfil'];
+        $monedas = $resultado['monedas'];
+        $consulta = 'SELECT u.nombre, imagenPerfil FROM partidas AS p JOIN usuario AS u ON p.idusuario = u.idUsuario WHERE host=1;';
+        $resultado1 = solicitarDatos($consulta);
+        while($fila = mysqli_fetch_array($resultado1)){
+            array_push($arraynombres,$fila[0]);
+            array_push($arrayimagenes,$fila[1]);
+        }
+
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/SJuegoLoteria.css">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/styleallpages.css"> 
+    <link rel="stylesheet" href="css/styleallpages.css">
     <script src="js/JuegoLoteria.js" defer></script>
     <title>Loteria</title>
 </head>
@@ -21,18 +41,24 @@
             <label class="Sala">Sala:</label>
         </div>-->
         <div class="usuario">
-            <img id="imgUsuario" src="img/Cris.png" alt="Imagen del usuario">
-            <p>Nombre del usuario</p>
-            <p>Monedas:000</p>
+            <img id="imgUsuario" src="data:image/png;base64,<?php  echo base64_encode($imagen)?>" alt="Imagen del usuario">
+            <p><?php echo $nombre ?></p>
+            <p>Monedas:<?php echo $monedas ?></p>
         </div>
         <div class="competidores">
-            <div class="card">
-                <img src="img/Jeff.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Jugador1</p>
-                </div>
-            </div>
-            <div class="card">
+            <?php for ($i=0; $i < count($arraynombres) ; $i++) { ?>
+                <?php if ($nombre != $arraynombres[$i]) { ?>
+                    <div class="card">
+                        <img src="data:image/png;base64,<?php  echo base64_encode($arrayimagenes[$i]);?>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text"><?php  echo $arraynombres[$i]; ?></p>
+                        </div>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+            
+                
+            <!--<div class="card">
                 <img src="img/Jennifer.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text">Jugador2</p>
@@ -49,11 +75,8 @@
                 <div class="card-body">
                     <p class="card-text">Jugador4</p>
                 </div>
-            </div>
-            <!--<div class="participante">Jugador1</div>
-            <div class="participantes">Jugador2</div>
-            <div class="participantes">Jugador3</div>
-            <div class="participantes">Jugador4</div>-->
+            </div>-->
+            
         </div>
     </section>
     <section class="mazo-cartas">

@@ -1,11 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Chilanka&display=swap');
-
-/*html {
-    margin: 0px;
-    height: 100%;
-    width: 100%;
-}*/
-
 .wrapper {
     display: grid;
     grid-template-columns: 40% 15% 45% minmax(0px, auto);
@@ -13,10 +6,12 @@
     grid-auto-rows: minmax(100px, auto);
     background-color: #EDEAE5;
     overflow-x: hidden;
+    padding-bottom: 1px;
+    height: 100%;
 }
 
-header{
-    grid-column:1/4;
+header {
+    grid-column: 1/4;
     grid-row: 1;
 }
 
@@ -30,21 +25,18 @@ header{
     grid-row: 2/4;
 }
 
-.tabla{
+.tabla {
     grid-column: 3/4;
     grid-row: 2;
 }
 
-. body {
+body,
+html {
     margin: 0px;
     width: 100%;
-    height: 80%;
-    /*display: grid;
-    grid-template-columns: 40% 20% 40% minmax(0px, auto);
-    grid-template-rows: 50% minmax(0px, auto) minmax(0px, auto);
-    grid-gap: 1px;*/
-    
-    
+    height: 100%;
+    padding-bottom: 0.1mm;
+    background-color: #EDEAE5;
 }
 
 
@@ -55,7 +47,7 @@ header{
 
 .Jugadores {
     width: 100%;
-    height: 75%;
+    height: 100%;
     display: grid;
     grid-template-rows: 20% 30% 50% minmax(-1px, auto);
     grid-template-columns: 100%;
@@ -98,7 +90,7 @@ header{
 .competidores {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 35% 35%;
+    grid-template-rows: 50% 50%;
     margin: 1%;
     align-items: center;
     justify-items: center;
@@ -107,7 +99,7 @@ header{
 
 .card {
     width: 50%;
-    height: 70%;
+    height: 80%;
 }
 
 .card-img-top {
@@ -149,7 +141,6 @@ header{
 }
 
 #LoteriaBoton {
-   
     width: 100%;
     height: 20%;
     background-color: #9FEDD7;
@@ -171,14 +162,14 @@ header{
 /*----------Tablero de cartas------*/
 
 .tabla {
-    width: 95%;
-    height: 75%;
+    width: 90%;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(4, 23.2%);
     grid-template-rows: repeat(4, 23.4%);
     grid-gap: 10px 10px;
     border: black solid 3px;
-    margin-right: 2%;
+    padding-right: 0.1mm;
     margin-top: 0.2%;
     margin-bottom: 0.1%;
     background: url('../img/Tableros/tablero-7.png') no-repeat center center fixed;
@@ -196,4 +187,12 @@ header{
 .front-card {
     width: 100%;
     height: 100%;
+}
+
+.ficha {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 30px;
+    top: 30px;
 }

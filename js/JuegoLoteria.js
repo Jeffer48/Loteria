@@ -45,7 +45,7 @@ function agregar(cadena, i, arr) {
     console.log(cadena);
 }
 
-(function () {
+(function() {
     "use strict";
     const cards = document.querySelectorAll(".loteria-card");
 
@@ -177,7 +177,9 @@ function validar() {
 
     function match(cartaA) {
         if (cartaA.src == cartaJugador.lastElementChild.src) {
-            let ficha = `<img src="../img/ficha.png" alt="ficha" width="80px" height="80px" style="position: absolute; left: 30px; top: 30px"></img>`;
+            let ficha =
+                `<img src="img/ficha.png" class="ficha" alt="ficha">`;
+            //`<img src="../Cris.png" class="ficha" alt="ficha" width="80px" height="80px" style="position: absolute; left: 30px; top: 30px">`;
             cartaJugador.innerHTML += ficha; //Se agrega la ficha, necesita sumarse para no eliminar la carta
             puntaje++;
             if (puntaje == 16) {
