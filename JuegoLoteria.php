@@ -23,18 +23,28 @@
 
         if(isset($_POST['pGanar'])){
             $hostp = $_POST['hostp'];
-            $sql = 'UPDATE partidas SET 
+            $consulta = 'SELECT ganador FROM partidas WHERE host ='.$hostp.' AND  ganador != 0 ;';
+            $ganador = mysqli_fetch_assoc(solicitarDatos($consulta));
+
+            if(isset($ganador)){
+                $sql1 = 'UPDATE usuario SET monedas= 30 +
+                (SELECT monedas FROM usuario WHERE nombre="'.$nombre.'")
+                WHERE  nombre="'.$nombre.'" ;';
+                $resultado1 = guardarDatos($sql1);
+                header("Location: perdedor.php");
+            }else{
+                $sql = 'UPDATE partidas SET 
                 ganador=(SELECT idUsuario FROM `usuario` WHERE nombre="'.$nombre.'") 
                 WHERE host = '.$hostp.' AND 
                 idusuario=(SELECT idUsuario FROM `usuario` WHERE nombre="'.$nombre.'");';
-            $resultado = guardarDatos($sql);
+                $resultado = guardarDatos($sql);
 
-            $sql1 = 'UPDATE usuario SET monedas=500+
+                $sql1 = 'UPDATE usuario SET monedas= 100 +
                 (SELECT monedas FROM usuario WHERE nombre="'.$nombre.'")
                 WHERE  nombre="'.$nombre.'" ;';
-            $resultado1 = guardarDatos($sql1);
-            header("Location: ganador.php");
-            
+                $resultado1 = guardarDatos($sql1);
+                header("Location: ganador.php");
+            }
         }
     }
 ?>
