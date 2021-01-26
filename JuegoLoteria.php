@@ -1,8 +1,13 @@
 <?php
     session_start();
     include 'conexion.php';
-    $nombre; $monedas; $imagen;
+    $nombre; $monedas; $imagen; $hostp;
     $arraynombres=array(); $arrayimagenes=array();
+
+    if(isset($_POST['host'])){
+        $hostp = $_POST['host'];
+      } 
+
     if(isset($_SESSION['usuario'][1])){
         $nombre = $_SESSION['usuario'][1];
         $consulta = 'SELECT monedas, imagenPerfil FROM usuario WHERE nombre ="'.$nombre.'" ;';
@@ -14,6 +19,26 @@
         while($fila = mysqli_fetch_array($resultado1)){
             array_push($arraynombres,$fila[0]);
             array_push($arrayimagenes,$fila[1]);
+        }
+
+        if(isset($_POST['pGanar'])){
+            $comparacion = '<script>document.write(sessionStorage.getItem("gano"));</script>';
+            $dato = $comparacion;
+            $hostp = $_POST['hostp'];
+            echo 'host = '.$hostp.'  nombre = '.$nombre.' ';
+            if(isset($dato)){
+            $sql = 'UPDATE partidas SET 
+            ganador=(SELECT idUsuario FROM `usuario` WHERE nombre="'.$nombre.'") 
+            WHERE host = '.$hostp.' AND 
+            idusuario=(SELECT idUsuario FROM `usuario` WHERE nombre="'.$nombre.'");';
+            $resultado = guardarDatos($sql);
+
+            $sql1 = 'UPDATE usuario SET monedas=500+
+            (SELECT monedas FROM usuario WHERE nombre="'.$nombre.'")
+            WHERE  nombre="'.$nombre.'" ;';
+            $resultado1 = guardarDatos($sql1);
+            header("Location: ganador.php");
+            }
         }
     }
 ?>
@@ -35,10 +60,6 @@
    <?php include 'header.php' ?>
     
     <section class="Jugadores">
-        <!--<div class="home-Sala">
-            <a id="home" href="#" class="btn btn-primary btn-lg active" tabindex="-1" role="button" aria-disabled="true">Home</a>
-            <label class="Sala">Sala:</label>
-        </div>-->
         <div class="usuario">
             <img id="imgUsuario" src="data:image/png;base64,<?php  echo base64_encode($imagen)?>" alt="Imagen del usuario">
             <p><?php echo $nombre ?></p>
@@ -56,39 +77,16 @@
                 <?php } ?>
             <?php } ?>
             
-                
-            <!--<div class="card">
-                <img src="img/Jennifer.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Jugador2</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/Denisse.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Jugador3</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="img/Mike.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Jugador4</p>
-                </div>
-            </div>-->
-            
         </div>
     </section>
     <section class="mazo-cartas">
         <div class="cartas-juego" id="salida">
             <img src="img/Cartas/Loteria-01.png" id="fondo-img">
         </div>
-        <!--<button class="boton-inicio">Iniciar</button>
-        <div class="fichas">
-            fichas
-        </div>-->
-        <div class="BotonLoteria">
-            <button id="LoteriaBoton" type="button" class="btn btn-primary">Loteria</button>
-        </div>
+        <form action="JuegoLoteria.php" method="post" class="BotonLoteria">
+            <button id="LoteriaBoton" name="pGanar" type="summit" class="btn btn-primary">Loteria</button>
+            <input type="hidden" name="hostp" value="<?php echo $hostp; ?>">
+        </form>
     </section>
 
 

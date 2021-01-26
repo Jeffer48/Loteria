@@ -93,7 +93,8 @@ function agregar(cadena, i, arr) {
 
 /*-----------------------------------Validaciones------------------------------------------*/
 let cartasAtrasadas = new Array(); //Arreglo de cartas pasadas
-sessionStorage.setItem("gano", "no");
+//sessionStorage.setItem("gano", "no");
+//sessionStorage.setItem("comparacion", "si");
 const cartasTablero = document.querySelectorAll('.loteria-card');
 cartasTablero.forEach(carta => carta.addEventListener('click', validar));
 
