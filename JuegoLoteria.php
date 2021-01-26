@@ -22,23 +22,19 @@
         }
 
         if(isset($_POST['pGanar'])){
-            $comparacion = '<script>document.write(sessionStorage.getItem("gano"));</script>';
-            $dato = $comparacion;
             $hostp = $_POST['hostp'];
-            echo 'host = '.$hostp.'  nombre = '.$nombre.' ';
-            if(isset($dato)){
             $sql = 'UPDATE partidas SET 
-            ganador=(SELECT idUsuario FROM `usuario` WHERE nombre="'.$nombre.'") 
-            WHERE host = '.$hostp.' AND 
-            idusuario=(SELECT idUsuario FROM `usuario` WHERE nombre="'.$nombre.'");';
+                ganador=(SELECT idUsuario FROM `usuario` WHERE nombre="'.$nombre.'") 
+                WHERE host = '.$hostp.' AND 
+                idusuario=(SELECT idUsuario FROM `usuario` WHERE nombre="'.$nombre.'");';
             $resultado = guardarDatos($sql);
 
             $sql1 = 'UPDATE usuario SET monedas=500+
-            (SELECT monedas FROM usuario WHERE nombre="'.$nombre.'")
-            WHERE  nombre="'.$nombre.'" ;';
+                (SELECT monedas FROM usuario WHERE nombre="'.$nombre.'")
+                WHERE  nombre="'.$nombre.'" ;';
             $resultado1 = guardarDatos($sql1);
             header("Location: ganador.php");
-            }
+            
         }
     }
 ?>
@@ -84,8 +80,8 @@
             <img src="img/Cartas/Loteria-01.png" id="fondo-img">
         </div>
         <form action="JuegoLoteria.php" method="post" class="BotonLoteria">
-            <button id="LoteriaBoton" name="pGanar" type="summit" class="btn btn-primary">Loteria</button>
-            <input type="hidden" name="hostp" value="<?php echo $hostp; ?>">
+        <button id="LoteriaBoton" name="pGanar" type="summit" class="btn btn-primary" disabled = true>Loteria</button>
+        <input type="hidden" name="hostp" value="<?php echo $hostp; ?>">
         </form>
     </section>
 

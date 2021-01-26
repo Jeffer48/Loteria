@@ -93,8 +93,6 @@ function agregar(cadena, i, arr) {
 
 /*-----------------------------------Validaciones------------------------------------------*/
 let cartasAtrasadas = new Array(); //Arreglo de cartas pasadas
-//sessionStorage.setItem("gano", "no");
-//sessionStorage.setItem("comparacion", "si");
 const cartasTablero = document.querySelectorAll('.loteria-card');
 cartasTablero.forEach(carta => carta.addEventListener('click', validar));
 
@@ -114,13 +112,14 @@ function validar() {
             //`<img src="../Cris.png" class="ficha" alt="ficha" width="80px" height="80px" style="position: absolute; left: 30px; top: 30px">`;
             cartaJugador.innerHTML += ficha; //Se agrega la ficha, necesita sumarse para no eliminar la carta
             puntaje++;
+
+            document.getElementById("LoteriaBoton").disabled = true;
+
             if (puntaje == 16) {
                 let inicion = 63;
-                setTimeout(() => {
-                    alert("GANASTE!!");
-                    sessionStorage.setItem("gano", "si");
-                }, 800);
+                document.getElementById("LoteriaBoton").disabled = false;
             }
+
             console.log('El puntaje es ' + puntaje);
             console.log('match');
             console.log(cartaJugador);

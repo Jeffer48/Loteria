@@ -7,7 +7,6 @@
 
     // $con = mysqli_connect('localhost', 'loteria1', '1234', 'loteria');
 
-
     function solicitarDatos($consulta){
         global $dir, $user, $pass, $nombreBD;
 
