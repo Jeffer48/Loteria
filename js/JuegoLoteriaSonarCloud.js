@@ -26,7 +26,7 @@ setInterval(() => {
             contador++;
         }
         //funcion para ir metiendo las cartas a un arreglo, pasandole valores
-        agregar(randomCard, inicio, arr);
+        agregar(randomCard, inicio);
 
         //ponemos la etiqueta imagen con la carta de loteria en una varible con el numero random que nos dio
         let salida = `<img src="img/Cartas/Loteria-${randomCard}.png" alt="Carta de loteria" class="cartas-juego"></img>`;
@@ -63,7 +63,7 @@ function agregar(cadena, i) {
                 //verificamos los numero para que no se repitan las cartas
                 while (i < index) {
                     //si la carta en la posicion i es la misma que el randomCard y i diferente que el ultimo dato
-                    if (randomCard === numerocartas[i] && i != index - 1) {
+                    if (randomCard == numerocartas[i] && i != index - 1) {
                         //generamos otro numero y volvemos a empezar la busqueda
                         randomCard = Math.floor((Math.random() * 59) + 2);
                         numerocartas[index - 1] = randomCard;
